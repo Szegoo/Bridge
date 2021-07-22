@@ -4,8 +4,8 @@ const ABI = require('./ABI');
 const address = "0x92ca3552599Ffa4Ae74945DA02065AC9D9Bf7336"
 const privateKey = "secret"
 
-const RopstenWeb3 = new Web3("wss://ropsten.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
-const RinkebyWeb3 = new Web3("wss://rinkeby.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
+const RopstenWeb3 = new Web3("infura endpoint on ropsten");
+const RinkebyWeb3 = new Web3("infura endpoint on rinkeby");
 
 const RopstenAddress = "0xB4d48062f4afC363FF4D6B8e70bFf328dE7fB7bA";
 const RinkebyAddress = "0x0097698994199cC75437Fe89F7b1aEd2cB4b2aCe";
