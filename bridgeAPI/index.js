@@ -1,14 +1,14 @@
 const Web3 = require('web3');
 const ABI = require('./ABI');
 
-const address = "0x92ca3552599Ffa4Ae74945DA02065AC9D9Bf7336"
-const privateKey = "secret"
+const address = "0x87BC5b7Ea1A2957ECcE8ae1858FC590744369902"
+const privateKey = "a0d9f8862cd73a4140fcc954c5dd865b37423d44c68b2109267aa4f0ee0f5bff"
 
-const RopstenWeb3 = new Web3("infura endpoint on ropsten");
-const RinkebyWeb3 = new Web3("infura endpoint on rinkeby");
+const RopstenWeb3 = new Web3("wss://ropsten.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
+const RinkebyWeb3 = new Web3("wss://rinkeby.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
 
-const RopstenAddress = "0xB4d48062f4afC363FF4D6B8e70bFf328dE7fB7bA";
-const RinkebyAddress = "0x0097698994199cC75437Fe89F7b1aEd2cB4b2aCe";
+const RopstenAddress = "0xDAbb0E7cD39cD41a36043D4338AF9aa641D1e811";
+const RinkebyAddress = "0xe84ff1f42bdc136b40c857bc928e2b1776a68185";
 
 const RopstenToken = new RopstenWeb3.eth.Contract(ABI, RopstenAddress);
 const RinkebyToken = new RinkebyWeb3.eth.Contract(ABI, RinkebyAddress);
@@ -24,7 +24,7 @@ RopstenToken.events.BurnEvent({})
         const gas = await tx.estimateGas({from: address});
         const gasPrice = await RinkebyWeb3.eth.getGasPrice();
         const data = tx.encodeABI();
-        const nonce = await RinkebyWeb3.eth.getTransactionCount(address);
+        const nonce = await RinkebyWeb3.eth.getTransactionCount(address) + 1;
         console.log("tx: " + tx);
         console.log("data: " +data);
         console.log("gas: " + gas);
@@ -41,7 +41,7 @@ RopstenToken.events.BurnEvent({})
         privateKey);
         RinkebyWeb3.eth.sendSignedTransaction(signedTx.rawTransaction);
         console.log("signed tx: " + signedTx);
-    })
+})
 RinkebyToken.events.BurnEvent({})
     .on('data', async(event) => {
         console.log('Token burned on Rinkeby')
@@ -70,4 +70,4 @@ RinkebyToken.events.BurnEvent({})
         privateKey);
         RopstenWeb3.eth.sendSignedTransaction(signedTx.rawTransaction);
         console.log("signed tx: " + signedTx);
-    })
+})
