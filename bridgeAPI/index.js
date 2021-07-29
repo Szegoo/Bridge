@@ -2,10 +2,10 @@ const Web3 = require('web3');
 const ABI = require('./ABI');
 
 const address = "0x87BC5b7Ea1A2957ECcE8ae1858FC590744369902"
-const privateKey = "a0d9f8862cd73a4140fcc954c5dd865b37423d44c68b2109267aa4f0ee0f5bff"
+const privateKey = ""
 
-const RopstenWeb3 = new Web3("wss://ropsten.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
-const RinkebyWeb3 = new Web3("wss://rinkeby.infura.io/ws/v3/e013c86a43a4452c925b592be49c8e21");
+const RopstenWeb3 = new Web3("");
+const RinkebyWeb3 = new Web3("");
 
 const RopstenAddress = "0xDAbb0E7cD39cD41a36043D4338AF9aa641D1e811";
 const RinkebyAddress = "0xe84ff1f42bdc136b40c857bc928e2b1776a68185";
